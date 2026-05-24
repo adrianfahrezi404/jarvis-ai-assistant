@@ -11,10 +11,10 @@
 
 | No | Nama | Peran |
 |----|------|-------|
-| 1  | Abdul Rosid | Ketua |
+| 1  | Adrian Dwi Fahrezi Rizki | Ketua |
 | 2  | Andira Septiani | Anggota |
 | 3  | Andini Maulidiah | Anggota |
-| 4  | Adrian Dwi Fahrezi Rizki | Anggota |
+| 4  | Abdul Rosid | Anggota |
 
 ---
 
@@ -33,7 +33,8 @@ pip install -r requirements.txt
 > **Catatan PyAudio (Windows):**  
 > Jika `pyaudio` gagal install, gunakan cara ini:
 > ```bash
->  
+> pip install pipwin
+> pipwin install pyaudio
 > ```
 > Atau download file `.whl` dari: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio
 
@@ -112,4 +113,3 @@ JARVIS : Saya dikembangkan oleh tim Intelligence created by A dari Teknik Inform
 - **TTS**: `gTTS` (Google Text-to-Speech) + `pygame`
 - **GUI**: `Tkinter` (built-in Python)
 - **Bahasa**: Python 3.10+
-# jarvis-ai-assistant
