@@ -1,9 +1,13 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 import sys
 import os
 
 # Menambahkan parent directory ke sys.path agar bisa import module lokal (jarvis_core dkk)
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR)
+
+# Path ke folder public (untuk serving file statis saat lokal)
+PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
 
 from jarvis_core import detect_intent, handle_local_intent, handle_offline_fallback
 from config import GROQ_ENABLED, GEMINI_ENABLED
@@ -30,6 +34,17 @@ if not handler and GEMINI_ENABLED:
 
 app = Flask(__name__)
 
+# ── Halaman utama (serve index.html dari folder public/) ────
+@app.route('/')
+def serve_index():
+    return send_from_directory(PUBLIC_DIR, 'index.html')
+
+# ── Serve file statis lainnya (CSS, JS, dll) ────────────────
+@app.route('/<path:filename>')
+def serve_static(filename):
+    return send_from_directory(PUBLIC_DIR, filename)
+
+# ── API Chat Endpoint ───────────────────────────────────────
 @app.route('/api/chat', methods=['POST'])
 def chat():
     data = request.get_json()
@@ -61,4 +76,8 @@ def chat():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Vercel membutuhkan object `app` di global scope file ini
+if __name__ == '__main__':
+    print(f"✓ Serving frontend dari: {PUBLIC_DIR}")
+    print(f"✓ AI Handler: {handler_type or 'Offline'}")
+    print(f"→ Buka http://127.0.0.1:5000 di browser Anda")
+    app.run(port=5000, debug=True)
