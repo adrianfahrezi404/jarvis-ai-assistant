@@ -1,0 +1,19 @@
+# ============================================================
+#  JARVIS v2.0 — Dependencies Tambahan untuk Versi Desktop
+#  Install setelah requirements.txt:
+#  pip install -r requirements-desktop.txt
+# ============================================================
+
+# Speech Recognition (STT) — untuk input suara via mikrofon
+SpeechRecognition>=3.10.0
+
+# PyAudio — driver mikrofon untuk SpeechRecognition
+# Windows: pip install pipwin && pipwin install pyaudio
+# Linux  : sudo apt install portaudio19-dev
+pyaudio>=0.2.13
+
+# Google Text-to-Speech (TTS) — untuk output suara
+gTTS>=2.3.2
+
+# Audio playback — untuk memutar suara TTS
+pygame>=2.5.0
