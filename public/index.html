@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S v2.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="grid-overlay"></div>
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header glass-panel">
+            <div class="reactor-container">
+                <div class="arc-reactor" id="arcReactor">
+                    <div class="core"></div>
+                    <div class="ring outer-ring"></div>
+                    <div class="ring middle-ring"></div>
+                    <div class="ring inner-ring"></div>
+                    <div class="coils">
+                        <div class="coil" style="--i:0"></div>
+                        <div class="coil" style="--i:1"></div>
+                        <div class="coil" style="--i:2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-info">
+                <h1>J.A.R.V.I.S <span class="version">v2.0</span></h1>
+                <p class="subtitle">Just A Rather Very Intelligent System</p>
+                <div class="status-indicator">
+                    <div class="dot online" id="statusDot"></div>
+                    <span id="statusText">SYSTEM ONLINE</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Area -->
+        <main class="chat-container glass-panel" id="chatContainer">
+            <div class="message system">
+                <div class="msg-content">
+                    <span class="system-title">INITIALIZING J.A.R.V.I.S PROTOCOLS...</span>
+                    <p>Intelligence created by A • JGU Teknik Informatika</p>
+                    <p>All systems operational. Waiting for input.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Input Area -->
+        <footer class="input-area glass-panel">
+            <button id="micBtn" class="action-btn mic-btn" title="Hold to Speak">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    <line x1="12" y1="19" x2="12" y2="22"></line>
+                </svg>
+            </button>
+            <div class="input-wrapper">
+                <input type="text" id="textInput" placeholder="Type a message or click the mic to speak..." autocomplete="off">
+            </div>
+            <button id="sendBtn" class="action-btn send-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
